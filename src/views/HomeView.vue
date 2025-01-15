@@ -2,9 +2,13 @@
   <div class="home-container">
     <!-- 左侧边栏 -->
     <div class="sidebar">
+      <header class="header">
+        <!-- <img class="logo" src="@/assets/logo.png" alt="logo"> -->
+        <span class="product-name">[产品名称]</span>
+      </header>
       <button class="new-chat-btn">
-        <span>➕</span>
-        默认大模型
+        <span>默认大模型</span>
+        <img class="add" src="@/assets/add.svg" alt="add">
       </button>
       <div class="conversation-list">
         <div class="conversation-item" v-for="(conv, index) in conversations" :key="index">
@@ -18,11 +22,6 @@
 
     <!-- 主内容区 -->
     <div class="main-area">
-      <header class="header">
-        <!-- <img class="logo" src="@/assets/logo.png" alt="logo"> -->
-        <!-- <span class="product-name">[产品名称]</span> -->
-      </header>
-
       <div class="main-content">
         <div class="welcome-section">
           <h1>👋 欢迎使用[产品名称]</h1>
@@ -58,7 +57,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
 const userInput = ref('')
 const conversations = ref(['新对话1', '新对话2', '新对话3', '新对话4'])
 const services = ref([
@@ -103,26 +101,32 @@ const deleteConversation = (index: number) => {
 .sidebar {
   width: 280px;
   background: #F7F7FA;
-  padding: 16px;
+  padding: 14px 12px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #eee;
+  
+  .header {
+    .product-name {
+      font-weight: 500;
+      font-size: 14px;
+      color: #102953;
+      line-height: 22px;
+    }
+  }
 
   .new-chat-btn {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: #f5f5f5;
-    border: none;
-    border-radius: 8px;
+    padding: 9px 11px 9px 32px;
+    color: #fff;
+    justify-content: space-between;
     cursor: pointer;
     width: 100%;
-    margin-bottom: 16px;
-
-    &:hover {
-      background: #e8e8e8;
-    }
+    margin-top: 37px;
+    margin-bottom: 72px;
+   // background: radial-gradient( 0% 15% at 57% 49%, #7751FE 0%, #F6F1FA 100%);
+    background: #9f8aeb;
+    border-radius: 8px;
+    border: none;
   }
 
   .conversation-list {
