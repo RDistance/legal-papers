@@ -150,8 +150,7 @@ const deleteConversation = (index: number) => {
     width: 100%;
     margin-top: 37px;
     margin-bottom: 72px;
-   // background: radial-gradient( 0% 15% at 57% 49%, #7751FE 0%, #F6F1FA 100%);
-    background: #9f8aeb;
+    background: radial-gradient(243.39% 214.86% at 1.95% 15%, #7751FE 0%, #F6F1FA 100%);
     border-radius: 8px;
     border: none;
   }
