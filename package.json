@@ -3,16 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "main": "electron/main.cjs",
+  "description": "The Project of Electron + Vue + Vite + Electron Forge",
+  "author": "plx",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "start": "electron-forge start",
-    "main": "electron/main.js",
+    "serve": "electron .",
+    "start": "concurrently \"npm run dev\" \"electron-forge start\"",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "npm run build && electron-forge package",
+    "make": "npm run build && electron-forge make"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
@@ -34,6 +38,7 @@
     "@vitejs/plugin-vue": "^5.0.3",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "@vue/tsconfig": "^0.5.1",
+    "concurrently": "^9.1.2",
     "electron": "^34.0.0",
     "less": "^4.2.1",
     "npm-run-all2": "^6.1.1",
